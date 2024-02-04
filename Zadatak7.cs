@@ -10,7 +10,79 @@ namespace zadaci_za_vjezbu_M01_Z01
     {
         public static void zadatak7()
         {
+            /*
+            7.	Napisati program u kojem ćete tražiti korisnika da unese rečenicu i spremiti unos u varijablu recenica. Tu rečenicu ćete zatim ispisati tako da ćete prvu trećinu ispisa velikim slovima, drugu trećinu malim slovima i treću trećinu opet velikim slovima. 
+                Zatim ćete tražiti korisnika da unese jednu riječ te ćete ispisati poziciju te riječi u prethodnoj rečenici (znači rečenica bi trebala ostati nepromijenjena). Zatim ćete tražiti unos 5 suglasnika 
+                s kojima ćete u početnoj rečenici zamijeniti samoglasnike (a, e, i , o, u - bez obzira na velika ili mala slova) svaki s jednim unesen suglasnikom (pomoću naredbe switch), a rezultat ćete spremiti u varijablu novaRecenica. 
+                Na kraju ćete ispisati početnu rečenicu kako je unesena i početnu rečenicu s ponovljenom promjenom samoglasnika, ali bez varijable novaRecenica. 
 
+                Napomene: 
+                •	provjerite duljinu rečenice da ne bude manja od 3 znaka
+                •	provjerite unos suglasnika
+                •	varijable za suglasnike nazovite umjestoA, umjestoE, umjestoI, umjestoO, umjestoU
+                •	pazite na velika i mala slova
+                •	dodatno: ukoliko je na kraju rečenice dodano više praznina, maknite ih. 
+                •	Npr: ako je unos "Ovo je rečenica.               " trebali biste uzeti samo "Ovo je rečenica."
+                */
+
+            Console.WriteLine("Unesite rečenicu sa minimalno 3 riječi...");
+            string recenica = Console.ReadLine().TrimEnd();
+
+            while (recenica.Length < 3)
+            {
+                Console.WriteLine("Niste unijeli rečenicu dulju od 3 znaka. Pokušajte ponovno:");
+                recenica = Console.ReadLine().TrimEnd();
+            }
+
+            int trecina = recenica.Length / 3;
+            string prviDio = recenica.Substring(0, trecina).ToUpper();
+            string drugiDio = recenica.Substring(trecina, trecina).ToLower();
+            string treciDio = recenica.Substring(trecina * 2).ToUpper();
+
+            string promjenjenaRecenica = prviDio + drugiDio + treciDio;
+            Console.WriteLine(promjenjenaRecenica);
+
+            Console.WriteLine("Unesite riječ za pretragu u rečenici:");
+            string rijec = Console.ReadLine();
+            int index = recenica.IndexOf(rijec);
+
+            if (index != -1)
+            {
+                Console.WriteLine($"Riječ '{rijec}' se nalazi na poziciji: {index}");
+            }
+            else
+            {
+                Console.WriteLine("Riječ nije pronađena.");
+            }
+
+            Console.WriteLine("Unesite 5 suglasnika (svaki odvojen razmakom):");
+            char[] suglasnici = Console.ReadLine().Replace(" ", "").ToCharArray();
+            char[] samoglasnici = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+            string novaRecenica = "";
+            foreach (char znak in recenica)
+            {
+                if (samoglasnici.Contains(znak))
+                {
+                    switch (char.ToLower(znak))
+                    {
+                        case 'a': novaRecenica += suglasnici[0]; break;
+                        case 'e': novaRecenica += suglasnici[1]; break;
+                        case 'i': novaRecenica += suglasnici[2]; break;
+                        case 'o': novaRecenica += suglasnici[3]; break;
+                        case 'u': novaRecenica += suglasnici[4]; break;
+                    }
+                }
+                else
+                {
+                    novaRecenica += znak;
+                }
+            }
+
+            Console.WriteLine($"Originalna rečenica: {recenica}");
+            Console.WriteLine($"Rečenica s izmijenjenim samoglasnicima: {novaRecenica}");
         }
+
+
     }
 }
+

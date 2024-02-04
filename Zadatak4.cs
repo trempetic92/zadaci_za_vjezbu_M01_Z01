@@ -22,7 +22,7 @@ namespace zadaci_za_vjezbu_M01_Z01
             {
                 Console.WriteLine("Unesite prvi broj raspona: \n");
 
-                //Ukoliko se može parsati kao int spremi u varijablu a
+                //Ukoliko se može parsati da true i vrijednost spremi u varijablu. Dokle god je false, tražit će ponovni unos
                 while (!Int32.TryParse(Console.ReadLine(), out a))
                 {
                     if (a < 1 && a > 500)
@@ -38,12 +38,15 @@ namespace zadaci_za_vjezbu_M01_Z01
                 {
                     case 'y':
                         Console.WriteLine($"Prvi broj za raspon je {a}");
+                        //Završava petlju te se kod nastavlja dalje
                         nastaviZaPrvi = true;
                         break;
                     case 'n':
+                        //Vraća na početak petlje
                         Console.WriteLine("Možete ponovo unijeti prvi broj...\n");
                         break;
                     default:
+                        //Vraća na početak unosa za switch
                         Console.WriteLine("Unesite \"y\" za da \"n\" za ne...");
                         break;
                 }

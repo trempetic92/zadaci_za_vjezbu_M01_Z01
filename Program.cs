@@ -73,7 +73,7 @@ namespace zadaci_za_vjezbu_M01_Z01
                             Zadatak6.zadatak6();
                             break;
                         case "7":
-                           
+                           Zadatak7.zadatak7();
                             break;                       
                         case "0":
                             nastavi = false;
