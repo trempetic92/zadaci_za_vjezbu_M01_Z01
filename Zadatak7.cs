@@ -57,7 +57,7 @@ namespace zadaci_za_vjezbu_M01_Z01
 
             Console.WriteLine("Unesite 5 suglasnika (svaki odvojen razmakom):");
             char[] suglasnici = Console.ReadLine().Replace(" ", "").ToCharArray();
-            char[] samoglasnici = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+            char[] samoglasnici = { 'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U' };
             string novaRecenica = "";
             foreach (char znak in recenica)
             {
