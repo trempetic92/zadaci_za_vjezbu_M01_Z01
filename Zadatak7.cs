@@ -55,9 +55,28 @@ namespace zadaci_za_vjezbu_M01_Z01
                 Console.WriteLine("Riječ nije pronađena.");
             }
 
-            Console.WriteLine("Unesite 5 suglasnika (svaki odvojen razmakom):");
-            char[] suglasnici = Console.ReadLine().Replace(" ", "").ToCharArray();
+            char[] suglasnici = new char[5];
             char[] samoglasnici = { 'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U' };
+
+            for (int i = 0; i < suglasnici.Length; i++)
+            {
+                Console.WriteLine($"Unesite {i + 1}. suglasnik:");
+
+                while (true)
+                {
+                    string input = Console.ReadLine();
+                    //Privjera da je stvarno 1 znak, da ne postoji u arrayu samoglasnici te da je unos slovo
+                    if (input.Length == 1 && !samoglasnici.Contains(input[0]) && Char.IsLetter(input[0]))
+                    {
+                        suglasnici[i] = input[0];
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nije suglasnik, unesite ponovo:");
+                    }
+                }
+            }
             string novaRecenica = "";
             foreach (char znak in recenica)
             {

@@ -82,15 +82,18 @@ namespace zadaci_za_vjezbu_M01_Z01
             }
 
 
-            if (slucajniBroj >= a && slucajniBroj <= b)
+            if (a < b)
             {
-                Console.WriteLine($"Slučajni broj {slucajniBroj} je u rasponu");
+                (a, b) = (b, a);
+                if (slucajniBroj >= a && slucajniBroj <= b)
+                {
+                    Console.WriteLine($"Slučajni broj {slucajniBroj} je u rasponu");
+                }
+                else
+                {
+                    Console.WriteLine($"Slućajni broj {slucajniBroj} nije u rasponu");
+                }
             }
-            else
-            {
-                Console.WriteLine($"Slućajni broj {slucajniBroj} nije u rasponu");
-            }
-
         }
     }
 }
