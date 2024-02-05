@@ -10,6 +10,10 @@ namespace zadaci_za_vjezbu_M01_Z01
     {
         public static void zadatak4()
         {
+
+            //Vjerujem da se dalo riješiti sa jednom while petljom za nastavak, a ne sa dve. 
+
+
             int a = 0, b = 0;
             int slucajniBroj = new Random().Next(1, 501);
             bool nastaviZaPrvi = false;
