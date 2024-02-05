@@ -96,9 +96,21 @@ namespace zadaci_za_vjezbu_M01_Z01
                     novaRecenica += znak;
                 }
             }
-
+            char[] slovkamo = new char[novaRecenica.Length];
             Console.WriteLine($"Originalna rečenica: {recenica}");
-            Console.WriteLine($"Rečenica s izmijenjenim samoglasnicima: {novaRecenica}");
+            for (int i = 0; i < novaRecenica.Length; i++)
+            {
+                slovkamo[i] = novaRecenica[i];
+            }
+
+            Console.Write($"Promjenjena rečenica: ");
+
+            for (int i = 0; i < slovkamo.Length; i++)
+            {
+                Console.Write(slovkamo[i]);
+            }
+            Console.WriteLine();
+
         }
 
 
