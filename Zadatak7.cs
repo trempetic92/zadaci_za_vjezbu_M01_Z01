@@ -96,6 +96,9 @@ namespace zadaci_za_vjezbu_M01_Z01
                     novaRecenica += znak;
                 }
             }
+
+            //Moglo se i sa 1 for petljom ako bi uzeli u bzor da novaRecenica != novaRecenica[i]
+
             char[] slovkamo = new char[novaRecenica.Length];
             Console.WriteLine($"Originalna rečenica: {recenica}");
             for (int i = 0; i < novaRecenica.Length; i++)
